@@ -1,0 +1,24 @@
+{
+    "name": "image",
+    "version": "1.0.0",
+    "description": "Imageserver handles image rendering of mitsybot",
+    "main": "src/server.js",
+    "scripts": {
+      "start": "node -r dotenv/config  .",
+      "dev": "nodemon .",
+      "docker": "docker build -t bianca:$npm_package_version . && docker run -d --restart unless-stopped -p 2080:2080 --name ImageServer bianca:$npm_package_version"
+    },
+    "author": "Duuuuardo",
+    "dependencies": {
+      "canvas": "^2.8.0",
+      "cors": "^2.8.5",
+      "dotenv": "^10.0.0",
+      "express": "^4.17.1",
+      "millify": "^4.0.0",
+      "ws": "^8.2.2"
+    },
+    "devDependencies": {
+      "eslint": "^7.32.0",
+      "nodemon": "^2.0.7"
+    }
+  }
