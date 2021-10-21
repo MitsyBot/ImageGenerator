@@ -1,8 +1,6 @@
 FROM node:14.15-alpine
 
-WORKDIR /usr/home/imageserver
-
-EXPOSE 2080
+WORKDIR /usr/src/imageserver
 
 RUN apk add --no-cache \
         sudo \
@@ -30,5 +28,3 @@ RUN fc-cache -f && rm -rf /var/cache/*
 COPY . .
 
 RUN npm install
-
-CMD [ "npm", "start" ]
