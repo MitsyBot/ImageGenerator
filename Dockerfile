@@ -2,6 +2,8 @@ FROM node:14.15-alpine
 
 WORKDIR /usr/src/imageserver
 
+LABEL org.opencontainers.image.source="https://github.com/MitsyBot/ImageServer"
+
 RUN apk add --no-cache \
         sudo \
         curl \
