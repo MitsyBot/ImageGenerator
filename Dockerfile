@@ -1,5 +1,4 @@
 FROM node:14.15-alpine as builder
-LABEL org.opencontainers.image.source=https://github.com/MitsyBot/ImageServer
 
 WORKDIR /usr/src/imageserver
 
