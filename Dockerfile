@@ -1,4 +1,4 @@
-FROM node:14.15-alpine
+FROM node:14.15-alpine as builder
 LABEL org.opencontainers.image.source=https://github.com/MitsyBot/ImageServer
 
 WORKDIR /usr/src/imageserver
@@ -29,3 +29,9 @@ RUN fc-cache -f && rm -rf /var/cache/*
 COPY . .
 
 RUN npm install
+
+FROM node:16-alpine as runner
+WORKDIR /usr/src/imageserver
+COPY --from=builder /usr/src/imageserver /usr/src/imageserver
+
+CMD ["npm", "run", "start"]
