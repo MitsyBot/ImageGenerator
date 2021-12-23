@@ -33,4 +33,6 @@ FROM node:16-alpine as runner
 WORKDIR /usr/src/imageserver
 COPY --from=builder /usr/src/imageserver /usr/src/imageserver
 
+EXPOSE 2080
+
 CMD ["npm", "run", "start"]
