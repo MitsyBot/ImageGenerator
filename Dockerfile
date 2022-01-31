@@ -8,4 +8,4 @@ WORKDIR /app
 COPY --from=builder /src/src/img_generator /app
 
 EXPOSE 2080
-ENTRYPOINT ./img_generator
+CMD ["./img_generator"]
