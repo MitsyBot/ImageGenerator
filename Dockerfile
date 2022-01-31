@@ -8,5 +8,5 @@ FROM alpine
 WORKDIR /app
 COPY --from=builder /src/src/generator /app
 
-EXPOSE 1234
+EXPOSE 2080
 ENTRYPOINT ./generator
