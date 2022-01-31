@@ -32,3 +32,16 @@ jobs:
           file: Dockerfile
           push: true
           tags: ghcr.io/mitsybot/image-generator:latest
+      - name: Enviar os arquivos para maquina da mitsy
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }}
+          port: ${{ secrets.PORT }}
+          script: |
+            docker stop Image_Generator
+            docker rm Image_Generator
+            docker image rm ghcr.io/mitsybot/image-generator:latest
+            docker pull ghcr.io/mitsybot/image-generator:latest
+            docker run -it -d -p 2080:2080 --name Image_Generator ghcr.io/mitsybot/image-generator:latest

@@ -1,0 +1,1 @@
+cd ./src && echo "[1/3] Rodando GO GET" && go get  && echo "[2/3] Instalando..." && go install && echo "[3/3] Imageserver rodando!"   && go run main.go
