@@ -2,11 +2,10 @@ FROM golang:alpine AS builder
 WORKDIR /src
 COPY . /src
 RUN go mod tidy
-RUN cd ./src && go build -o generator
-RUN cd /src/src && ls
+RUN cd ./src && go build -o img_generator
 FROM alpine
 WORKDIR /app
-COPY --from=builder /src/src/generator /app
+COPY --from=builder /src/src/img_generator /app
 
 EXPOSE 2080
-ENTRYPOINT ./generator
+ENTRYPOINT ./img_generator
