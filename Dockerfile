@@ -1,11 +1,11 @@
 FROM golang:alpine AS builder
 WORKDIR /src
 COPY . /src
-RUN cd ./src && go build -o ImageGenerator
+RUN cd ./src && go build -o image
 
 FROM alpine
 WORKDIR /app
-COPY --from=builder /src/src/ImageGenerator /app
+COPY --from=builder /src/src/image /app
 
-EXPOSE 2080
-ENTRYPOINT ./ImageGenerator
+EXPOSE 1234
+ENTRYPOINT ./image
