@@ -1,8 +1,8 @@
 FROM golang:alpine AS builder
 WORKDIR /src
 COPY . /src
-RUN ls
-RUN go build -o generator
+RUN go mod tidy
+RUN cd src && go build -o generator
 
 FROM alpine
 WORKDIR /app
