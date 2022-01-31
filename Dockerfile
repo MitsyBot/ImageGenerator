@@ -9,4 +9,5 @@ WORKDIR /app
 COPY --from=builder /src/src/generator /app
 
 EXPOSE 1234
+RUN ls
 ENTRYPOINT ./generator
