@@ -44,4 +44,4 @@ jobs:
             docker rm Image_Generator
             docker image rm ghcr.io/mitsybot/image-generator:latest
             docker pull ghcr.io/mitsybot/image-generator:latest
-            docker run -it -d -p 2080:2080 --name Image_Generator ghcr.io/mitsybot/image-generator:latest
+            docker run -it -d --pid=host -p 2080:2080 --name Image_Generator ghcr.io/mitsybot/image-generator:latest
