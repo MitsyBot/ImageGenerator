@@ -6,6 +6,21 @@ import (
 	"github.com/fogleman/gg"
 )
 
+type ProfileData struct {
+	AvatarURL   string   `json:"avatarUrl" form:"avatarUrl"`
+	Background  string   `json:"bgId" form:"bgId"`
+	Reps        string   `json:"reps" form:"reps"`           // New field
+	Married     bool     `json:"married" form:"married"`
+	Name        string   `json:"name" form:"name"`
+	AboutMe     string   `json:"aboutMe" form:"aboutMe"`
+	FavColor    string   `json:"favColor" form:"favColor"`
+	Money       string   `json:"money" form:"money"`
+	Type        string   `json:"type" form:"type"`
+	Badges      []string `json:"badges" form:"badges"`
+	PartnerName string   `json:"partnerName" form:"partnerName"`
+	AvatarIcon  string   `json:"avatarIcon" form:"avatarIcon"`
+}
+
 
 func RenderDefaulProfile(g generator.Generator, p *ProfileData) image.Image {
 	dc := gg.NewContext(1100, 720)
