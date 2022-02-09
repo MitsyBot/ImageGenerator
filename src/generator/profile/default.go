@@ -2,7 +2,7 @@ package profilegenerator
 
 import (
 	"image"
-	"tokamak/src/generator"
+	"generator/src/generator"
 	"github.com/fogleman/gg"
 )
 
