@@ -1,11 +1,9 @@
 package server
 
 import (
-	"fmt"
 	"image"
 	"image/png"
 	"io/ioutil"
-	"strconv"
 	"time"
 	"generator/src/generator"
 	profilegenerator "generator/src/generator/profile"
@@ -16,7 +14,6 @@ import (
 	"github.com/gofiber/fiber/v2/middleware/compress"
 	"github.com/gofiber/fiber/v2/middleware/monitor"
 	"github.com/gofiber/fiber/v2/middleware/pprof"
-	"github.com/nfnt/resize"
 )
 
 func StartServer(port string) {
