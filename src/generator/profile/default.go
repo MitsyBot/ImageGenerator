@@ -36,8 +36,8 @@ func RenderProfile(g generator.Generator, p *ProfileData) image.Image {
 	/* AVATAR DRAWING */
 	avatarSize := 240
 	circleSize := float64(116)
-	x := 194
-	y := 135
+	x := 197
+	y := 143
 
 	avatar := g.Toolbox.ReadImageFromURL(p.AvatarURL, avatarSize, avatarSize)
 	dc.DrawCircle(float64(x), float64(y), circleSize)
