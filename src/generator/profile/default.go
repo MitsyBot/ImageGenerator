@@ -17,6 +17,7 @@ type ProfileData struct {
 	FavColor    string   `json:"favColor" form:"favColor"`
 	Level 		string   `json:"level" form:"level"`
 	Xp 			string   `json:"xp" form:"xp"`
+	Ranking 	string   `json:"ranking" form:"ranking"`
 	Rep 		string   `json:"rep" form:"rep"`
 	Money       string   `json:"money" form:"money"`
 	Type        string   `json:"type" form:"type"`
@@ -88,6 +89,13 @@ func RenderProfile(g generator.Generator, p *ProfileData) image.Image {
 	dc.LoadFontFace("./fonts/Inter/Montserrat-Medium.ttf", 24) // Default is 40px
 	g.Toolbox.DrawTextWrapped(dc, p.Rep, 640, 370, 208, 408, 13)
 	
+	/* Rep */
+	dc.LoadFontFace("./fonts/Monstserrat/Montserrat-Medium.ttf", 24) // Default is 40px
+	g.Toolbox.DrawTextWrapped(dc, "Ranking global", 378, 420, 208, 408, 13)
+	
+	dc.LoadFontFace("./fonts/Inter/Montserrat-Medium.ttf", 24) // Default is 40px
+	g.Toolbox.DrawTextWrapped(dc, p.Ranking, 640, 420, 208, 408, 13)
+
 	/* ProgressBar */
 
 	dc.LoadFontFace("./fonts/Monstserrat/Montserrat-Medium.ttf", 24) // Default is 40px
