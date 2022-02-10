@@ -7,7 +7,7 @@ RUN cd ./ && ls
 
 FROM alpine
 WORKDIR /app
-COPY --from=builder /src/src/img_generator /app/src
+COPY --from=builder /src/src/img_generator /app/src/
 COPY --from=builder /src/assets/ /app/assets
 
 RUN ls
