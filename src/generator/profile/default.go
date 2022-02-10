@@ -75,7 +75,7 @@ func RenderProfile(g generator.Generator, p *ProfileData) image.Image {
 	g.Toolbox.DrawTextWrapped(dc, "Cometinhas", 378, 320, 208, 408, 13)
 
 	dc.LoadFontFace("./fonts/Inter/Montserrat-Medium.ttf", 24) // Default is 40px
-	g.Toolbox.DrawTextWrapped(dc, p.Money, 756, 320, 208, 408, 13)
+	g.Toolbox.DrawTextWrapped(dc, p.Money, 450, 320, 208, 408, 13)
 
 
 	/* Nivel */
@@ -121,7 +121,7 @@ func RenderProfile(g generator.Generator, p *ProfileData) image.Image {
 
 	for _, b := range p.Badges {
 		nb++
-		if nb == 6 {
+		if nb == 7 {
 		} else {
 			if b != "" {
 				dc.DrawImage(g.Toolbox.GetAsset("badges/profile/"+b), int(cxpos), int(cypos))
@@ -130,7 +130,7 @@ func RenderProfile(g generator.Generator, p *ProfileData) image.Image {
 			cypos = cypos + badgesizey + badgespacing
 			if cypos > by+spacebtwedge+recsizey {
 				cxpos = cxpos - badgesizex - badgespacing
-				cypos = by
+				cypos = 390
 				if cxpos > bx+spacebtwedge+recsizex {
 					break // if we run out of space, break the loop
 				}
