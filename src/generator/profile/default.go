@@ -67,7 +67,7 @@ func RenderProfile(g generator.Generator, p *ProfileData) image.Image {
 	/* NickName	*/
 	dc.LoadFontFace("./fonts/Inter/semibold.ttf", 30)
 	dc.SetHexColor(g.Toolbox.GetCompatibleFontColor("#ffff"))
-	dc.DrawString(p.Name, float64(120), float64(640))
+	dc.DrawString(p.Name, float64(120), float64(612))
 
 	dc.LoadFontFace("./fonts/Inter/semibold.ttf", 24) // Default is 40px
 	g.Toolbox.DrawTextWrapped(dc, p.Money, 520, 306, 208, 408, 13)
