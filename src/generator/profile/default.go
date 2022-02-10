@@ -89,7 +89,7 @@ func RenderProfile(g generator.Generator, p *ProfileData) image.Image {
 	
 	/* ProgressBar */
 	dc.SetHexColor(p.FavColor)
-	dc.DrawRoundedRectangle(378, 410, 20, 9, float64(3))
+	dc.DrawRoundedRectangle(378, 410, 200, 9, float64(3))
 	dc.Stroke()
 
 	/* Nivel */
