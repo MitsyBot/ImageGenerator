@@ -80,10 +80,10 @@ func RenderProfile(g generator.Generator, p *ProfileData) image.Image {
 
 	/* Nivel */
 	dc.LoadFontFace("./fonts/Monstserrat/Montserrat-ExtraLight.ttf", 40) // Default is 40px
-	g.Toolbox.DrawTextWrapped(dc, "Nivel", 990, 322, 208, 408, 13)
+	dc.DrawString("Nivel", float64(990), float64(322))
 
 	dc.LoadFontFace("./fonts/Monstserrat/Montserrat-Regular.ttf", 45) // Default is 40px
-	g.Toolbox.DrawTextWrapped(dc, "64", 1002, 366, 208, 408, 13)
+	dc.DrawString("64", float64(1010), float64(366))
 
 	/* About Me	*/
 	dc.LoadFontFace("./fonts/Inter/medium.ttf", 23)
