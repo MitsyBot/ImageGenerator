@@ -110,7 +110,7 @@ func RenderProfile(g generator.Generator, p *ProfileData) image.Image {
 	badgesizex := 35.0
 	badgesizey := 30.0
 	badgespacing := 65.0 // <=
-	spacebtwedge := 20.0
+	spacebtwedge := 40.0
 	recsizex := 450.0
 
 	recsizey := badgesizey*2 + badgespacing
@@ -130,7 +130,7 @@ func RenderProfile(g generator.Generator, p *ProfileData) image.Image {
 			cypos = cypos + badgesizey + badgespacing
 			if cypos > by+spacebtwedge+recsizey {
 				cxpos = cxpos + badgesizex + badgespacing
-				cxpos = bx + spacebtwedge
+				cxpos = bx - spacebtwedge
 				if cxpos > bx+spacebtwedge+recsizex {
 					break // if we run out of space, break the loop
 				}
