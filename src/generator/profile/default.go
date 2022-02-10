@@ -16,6 +16,7 @@ type ProfileData struct {
 	AboutMe     string   `json:"aboutMe" form:"aboutMe"`
 	FavColor    string   `json:"favColor" form:"favColor"`
 	Level 		string   `json:"level" form:"level"`
+	BarLevel	string	 `json:"barlevel" form:"barlevel"`
 	Xp 			string   `json:"xp" form:"xp"`
 	Ranking 	string   `json:"ranking" form:"ranking"`
 	Rep 		string   `json:"rep" form:"rep"`
@@ -109,7 +110,7 @@ func RenderProfile(g generator.Generator, p *ProfileData) image.Image {
 	dc.Fill()
 
 	dc.SetHexColor(p.FavColor)
-	dc.DrawRoundedRectangle(378, 493, 200, 9, float64(3))
+	dc.DrawRoundedRectangle(378, 493, p.BarLevel, 9, float64(3))
 	dc.Fill()
 
 	/* Nivel */
