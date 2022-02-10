@@ -1,7 +1,7 @@
 package main
 
 import (
-	"generator/src/server"
+	"img_srv/src/server"
 )
 
 func main() {

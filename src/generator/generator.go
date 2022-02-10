@@ -3,7 +3,7 @@ package generator
 import (
 	"golang.org/x/image/font"
 	"image"
-	"generator/src/utils"
+	"img_srv/src/utils"
 )
 
 type Generator struct {

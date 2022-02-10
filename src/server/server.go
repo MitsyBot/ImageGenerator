@@ -7,9 +7,9 @@ import (
 	"io/ioutil"
 	"strconv"
 	"time"
-	"generator/src/generator"
-	profilegenerator "generator/src/generator/profile"
-	"generator/src/utils"
+	"img_srv/src/generator"
+	profilegenerator "img_srv/src/generator/profile"
+	"img_srv/src/utils"
 
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/cache"
@@ -55,7 +55,7 @@ func StartServer(port string) {
 
 	app.Static("/static", "../assets/images")
 	app.Get("/version", func(c *fiber.Ctx) error {
-		return c.SendString("generator v1.1-dev1 (fasthttp/fiber; golang)")
+		return c.SendString("img_srv v1.1-dev1 (fasthttp/fiber; golang)")
 	})
 	app.Get("/get_asset_list/:image", func(c *fiber.Ctx) error {
 		if _, found := utils.Find([]string{"badges", "stickers", "bgs"}, c.Params("image")); !found {

@@ -1,4 +1,4 @@
-module generator
+module img_srv
 
 go 1.16
 

@@ -2,7 +2,7 @@ package profilegenerator
 
 import (
 	"image"
-	"generator/src/generator"
+	"img_srv/src/generator"
 
 	"github.com/fogleman/gg"
 )
