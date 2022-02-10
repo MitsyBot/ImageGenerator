@@ -85,11 +85,11 @@ func StartServer(port string) {
 		case "default":
 			c.Set("Content-Type", "image/webp")
 
-			img = profilegenerator.RenderDefaulProfile(gen, p)
+			img = profilegenerator.RenderDefaultProfile(gen, p)
 		default:
 			c.Set("Content-Type", "image/webp")
 
-			img = profilegenerator.RenderDefaulProfile(gen, p)
+			img = profilegenerator.RenderDefaultProfile(gen, p)
 		}
 
 		if c.Query("w", "0") != "0" {
