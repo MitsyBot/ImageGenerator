@@ -7,9 +7,9 @@ import (
 	"io/ioutil"
 	"strconv"
 	"time"
-	"img_srv/src/generator"
-	profilegenerator "img_srv/src/generator/profile"
-	"img_srv/src/utils"
+	"trailgen/src/generator"
+	profilegenerator "trailgen/src/generator/profile"
+	"trailgen/src/utils"
 
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/cache"
@@ -55,11 +55,11 @@ func StartServer(port string) {
 
 	app.Static("/static", "../assets/images")
 	app.Get("/version", func(c *fiber.Ctx) error {
-		return c.SendString("img_srv v1.1-dev1 (fasthttp/fiber; golang)")
+		return c.SendString("trailgen v1.1-dev1 (fasthttp/fiber; golang)")
 	})
 	app.Get("/get_asset_list/:image", func(c *fiber.Ctx) error {
-		if _, found := utils.Find([]string{"badges", "stickers", "bgs"}, c.Params("image")); !found {
-			return c.SendString("nothing")
+		if _, found := utils.Find([]string{"foundation", "badges", "stickers", "bgs"}, c.Params("image")); !found {
+			return c.SendString("não!")
 		}
 
 		files, err := ioutil.ReadDir("../assets/images/" + c.Params("image"))
@@ -83,13 +83,10 @@ func StartServer(port string) {
 
 		switch p.Type {
 		case "default":
-			c.Set("Content-Type", "image/webp")
-
+			c.Set("Content-Type", "image/png")
 			img = profilegenerator.RenderProfile(gen, p)
-
 		default:
-			c.Set("Content-Type", "image/webp")
-
+			c.Set("Content-Type", "image/png")
 			img = profilegenerator.RenderProfile(gen, p)
 		}
 
@@ -117,7 +114,7 @@ func StartServer(port string) {
 						img = newImage
 					default:
 						c.Set("Content-Type", "text/plain; charset=utf-8")
-						return c.SendString("😳 Oops! You forgot something your cute.")
+						return c.SendString("😳 Você esqueceu alguma coisa.")
 					}
 				}
 

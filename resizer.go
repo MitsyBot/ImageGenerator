@@ -1,7 +1,5 @@
 package main
 
-// utility for resizing images
-
 import (
 	"image"
 	_ "image/jpeg"
@@ -12,11 +10,6 @@ import (
 import (
 	"github.com/disintegration/imaging"
 )
-
-// X×Y
-// Stickers: 100x100
-// Emojis: 15x15
-// Bgs: 600x190
 
 func main() {
 	path := "./assets/images/badges/bug_hunter.png"
@@ -34,7 +27,7 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
-	print("WARNING: Using Lanczos to resample the image. This may take a few moments.\n")
+	print("AVISO: Usando Lanczos para resamplear a imagem. Isto pode demorar um pouco.\n")
 	img = imaging.Fill(img, x, y, imaging.Center, imaging.Lanczos)
 
 	outf, err := os.Create(save_to)
@@ -47,6 +40,6 @@ func main() {
 	if err != nil {
 		panic(err)
 	} else {
-		print("done\n")
+		print("pronto\n")
 	}
 }

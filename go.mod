@@ -1,4 +1,4 @@
-module img_srv
+module trailgen
 
 go 1.16
 
