@@ -131,7 +131,7 @@ func RenderProfile(g generator.Generator, p *ProfileData) image.Image {
 			if cypos > by+spacebtwedge+recsizey {
 				cxpos = cxpos + badgesizex + badgespacing
 				cxpos = bx + spacebtwedge
-				if cypos > by+spacebtwedge+recsizey {
+				if cxpos > bx+spacebtwedge+recsizex {
 					break // if we run out of space, break the loop
 				}
 			}
