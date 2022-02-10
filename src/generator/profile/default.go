@@ -22,7 +22,7 @@ type ProfileData struct {
 }
 
 
-func RenderDefaulProfile(g generator.Generator, p *ProfileData) image.Image {
+func RenderDefaultProfile(g generator.Generator, p *ProfileData) image.Image {
 	dc := gg.NewContext(1100, 720)
 
 	img := g.Toolbox.GetAsset("bgs/" + p.Background)
