@@ -79,7 +79,7 @@ func RenderProfile(g generator.Generator, p *ProfileData) image.Image {
 
 
 	/* Nivel */
-	dc.LoadFontFace("../assets/fonts/Poppins/Poppins-Light", 25)
+	dc.LoadFontFace("../assets/fonts/Montserrat/Montserrat-Regular.ttf", 25)
 	dc.DrawString("Nivel", float64(990), float64(322))
 
 	dc.LoadFontFace("./fonts/Monstserrat/Montserrat-Regular.ttf", 26) // Default is 40px
@@ -105,7 +105,7 @@ func RenderProfile(g generator.Generator, p *ProfileData) image.Image {
 
 	/* BADGES */
 
-	bx := 5.0
+	bx := 1020.0
 	by := 640.0
 	badgesizex := 35.0
 	badgesizey := 30.0
@@ -127,9 +127,9 @@ func RenderProfile(g generator.Generator, p *ProfileData) image.Image {
 				dc.DrawImage(g.Toolbox.GetAsset("badges/profile/"+b), int(cxpos), int(cypos))
 			}
 
-			cxpos = cxpos + badgesizex + badgespacing
-			if cxpos > bx+spacebtwedge+recsizex {
-				cypos = cypos + badgesizey + badgespacing
+			cypos = cypos + badgesizey + badgespacing
+			if cypos > by+spacebtwedge+recsizey {
+				cxpos = cxpos + badgesizex + badgespacing
 				cxpos = bx + spacebtwedge
 				if cypos > by+spacebtwedge+recsizey {
 					break // if we run out of space, break the loop
