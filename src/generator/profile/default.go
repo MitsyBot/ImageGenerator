@@ -121,7 +121,7 @@ func RenderProfile(g generator.Generator, p *ProfileData) image.Image {
 
 	for _, b := range p.Badges {
 		nb++
-		if nb == 100 {
+		if nb == 3 {
 		} else {
 			if b != "" {
 				dc.DrawImage(g.Toolbox.GetAsset("badges/profile/"+b), int(cxpos), int(cypos))
