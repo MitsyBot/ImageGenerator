@@ -85,7 +85,7 @@ func RenderProfile(g generator.Generator, p *ProfileData) image.Image {
 	g.Toolbox.DrawTextWrapped(dc, "Reputação", 378, 370, 208, 408, 13)
 	
 	dc.LoadFontFace("./fonts/Inter/Montserrat-Medium.ttf", 24) // Default is 40px
-	g.Toolbox.DrawTextWrapped(dc, p.Rep, 756, 370, 208, 408, 13)
+	g.Toolbox.DrawTextWrapped(dc, p.Rep, 760, 370, 208, 408, 13)
 	
 
 	/* Nivel */
