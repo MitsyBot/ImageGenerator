@@ -103,7 +103,7 @@ func RenderProfile(g generator.Generator, p *ProfileData) image.Image {
 	recsizey := badgesizey*2 + badgespacing
 
 	cxpos := bx + spacebtwedge
-	cypos := by + spacebtwedge
+	cypos := by
 	nb := 0
 
 	for _, b := range p.Badges {
