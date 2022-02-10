@@ -71,10 +71,10 @@ func RenderProfile(g generator.Generator, p *ProfileData) image.Image {
 
 
 	/* Dinheiros */
-	dc.LoadFontFace("./fonts/Inter/semibold.ttf", 24) // Default is 40px
+	dc.LoadFontFace("./fonts/Monstserrat/Montserrat-Medium.ttf", 24) // Default is 40px
 	g.Toolbox.DrawTextWrapped(dc, "Cometinhas", 380, 320, 208, 408, 13)
 
-	dc.LoadFontFace("./fonts/Inter/semibold.ttf", 24) // Default is 40px
+	dc.LoadFontFace("./fonts/Inter/Montserrat-Medium.ttf", 24) // Default is 40px
 	g.Toolbox.DrawTextWrapped(dc, p.Money, 760, 320, 208, 408, 13)
 
 	/* About Me	*/
