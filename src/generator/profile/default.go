@@ -91,6 +91,7 @@ func RenderProfile(g generator.Generator, p *ProfileData) image.Image {
 	dc.SetHexColor(p.FavColor)
 	dc.DrawRoundedRectangle(378, 410, 200, 9, float64(3))
 	dc.Stroke()
+	dc.Fill()
 
 	/* Nivel */
 	dc.LoadFontFace("../assets/fonts/Montserrat/Montserrat-Regular.ttf", 25)
