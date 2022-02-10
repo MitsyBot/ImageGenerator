@@ -105,7 +105,7 @@ func RenderProfile(g generator.Generator, p *ProfileData) image.Image {
 
 	/* BADGES */
 
-	bx := 1020.0
+	bx := 1000.0
 	by := 412.0
 	badgesizex := 35.0
 	badgesizey := 30.0
