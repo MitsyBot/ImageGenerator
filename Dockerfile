@@ -5,10 +5,12 @@ RUN go mod tidy
 RUN cd ./src && go build -o img_generator
 RUN cd ./ && ls
 
-FROM golang
+FROM alpine
 WORKDIR /app
 COPY --from=builder /src/src/img_generator /app/src
-COPY --from=builder /src/assets/ /app
+COPY --from=builder /src/assets/ /app/assets
+
+RUN ls
 
 EXPOSE 2080
 CMD ["./src/img_generator"]
