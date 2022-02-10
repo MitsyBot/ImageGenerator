@@ -39,6 +39,15 @@ func RenderProfile(g generator.Generator, p *ProfileData) image.Image {
 	x := 197
 	y := 143
 
+	/* Outline of avatar	*/
+	dc.SetHexColor("ffffff")
+	dc.DrawCircle(float64(x), float64(y), 77)
+	dc.Fill()
+
+	dc.SetHexColor(p.FavColor)
+	dc.DrawCircle(float64(x), float64(y), 125)
+	dc.Fill()
+
 	avatar := g.Toolbox.ReadImageFromURL(p.AvatarURL, avatarSize, avatarSize)
 	dc.DrawCircle(float64(x), float64(y), circleSize)
 	dc.Clip()
