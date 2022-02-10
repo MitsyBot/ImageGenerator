@@ -118,7 +118,7 @@ func RenderProfile(g generator.Generator, p *ProfileData) image.Image {
 	cxpos := bx + spacebtwedge
 	cypos := by
 	nb := 0
-
+	
 	for _, b := range p.Badges {
 		nb++
 		if nb == 10 {
