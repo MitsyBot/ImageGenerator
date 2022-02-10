@@ -71,6 +71,7 @@ func (util *Utils) GetAsset(path string) image.Image {
 	if ok == true {
 		return v
 	}
+	Println(path)
 	img_reader, err := os.Open("../assets/images/" + path + ".png")
 	if err != nil {
 		return util.default_image

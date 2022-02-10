@@ -58,7 +58,7 @@ func StartServer(port string) {
 		return c.SendString("trailgen v1.1-dev1 (fasthttp/fiber; golang)")
 	})
 	app.Get("/get_asset_list/:image", func(c *fiber.Ctx) error {
-		if _, found := utils.Find([]string{"foundation", "badges", "stickers", "bgs"}, c.Params("image")); !found {
+		if _, found := utils.Find([]string{"badges", "stickers", "bgs"}, c.Params("image")); !found {
 			return c.SendString("não!")
 		}
 
@@ -89,9 +89,6 @@ func StartServer(port string) {
 			c.Set("Content-Type", "image/webp")
 			img = profilegenerator.RenderProfile(gen, p)
 		}
-		fmt.Println(gen)
-		fmt.Println(p)
-
 
 		if c.Query("w", "0") != "0" {
 			if c.Query("h", "0") != "0" {
