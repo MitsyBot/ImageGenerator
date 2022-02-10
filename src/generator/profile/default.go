@@ -91,7 +91,7 @@ func RenderProfile(g generator.Generator, p *ProfileData) image.Image {
 	
 	/* Rep */
 	dc.LoadFontFace("./fonts/Monstserrat/Montserrat-Medium.ttf", 24) // Default is 40px
-	g.Toolbox.DrawTextWrapped(dc, "Ranking global", 378, 420, 208, 408, 13)
+	g.Toolbox.DrawTextWrapped(dc, "Ranking", 378, 420, 208, 408, 13)
 	
 	dc.LoadFontFace("./fonts/Inter/Montserrat-Medium.ttf", 24) // Default is 40px
 	g.Toolbox.DrawTextWrapped(dc, p.Ranking, 640, 420, 208, 408, 13)
@@ -102,10 +102,10 @@ func RenderProfile(g generator.Generator, p *ProfileData) image.Image {
 	g.Toolbox.DrawTextWrapped(dc, "Experiencia", 378, 466, 208, 408, 13)
 	
 	dc.LoadFontFace("./fonts/Monstserrat/Montserrat-Medium.ttf", 24) // Default is 40px
-	g.Toolbox.DrawTextWrapped(dc, p.Xp, 630, 466, 208, 408, 13)
+	g.Toolbox.DrawTextWrapped(dc, p.Xp, 378, 466, 208, 408, 13)
 	
 	dc.SetHexColor("#E8E8E8")
-	dc.DrawRoundedRectangle(378, 493, 366, 9, float64(3))
+	dc.DrawRoundedRectangle(378, 493, 368, 9, float64(3))
 	dc.Fill()
 
 	dc.SetHexColor(p.FavColor)
