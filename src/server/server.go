@@ -53,7 +53,7 @@ func StartServer(port string) {
 		CompressionLevel: -2, // no compression.
 	}
 
-	app.Static("/static", "../assets/images")
+	app.Static("/static", "./images")
 	app.Get("/version", func(c *fiber.Ctx) error {
 		return c.SendString("trailgen v1.1-dev1 (fasthttp/fiber; golang)")
 	})
@@ -62,7 +62,7 @@ func StartServer(port string) {
 			return c.SendString("não!")
 		}
 
-		files, err := ioutil.ReadDir("../assets/images/" + c.Params("image"))
+		files, err := ioutil.ReadDir("./images/" + c.Params("image"))
 		if err != nil {
 			panic(err)
 			return c.SendString("[]")

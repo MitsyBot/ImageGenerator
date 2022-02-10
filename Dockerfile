@@ -6,7 +6,8 @@ RUN cd ./src && go build -o img_generator
 
 FROM alpine
 WORKDIR /app
-COPY --from=builder /src /app
+COPY --from=builder /src/src/img_generator /app
+COPY --from=builder /src/assets /app
 
 EXPOSE 2080
-CMD ["./src/img_generator"]
+CMD ["./img_generator"]
