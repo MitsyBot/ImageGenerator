@@ -15,6 +15,8 @@ type ProfileData struct {
 	Name        string   `json:"name" form:"name"`
 	AboutMe     string   `json:"aboutMe" form:"aboutMe"`
 	FavColor    string   `json:"favColor" form:"favColor"`
+	Level 		string   `json:"level" form:"level"`
+	Rep 		string   `json:"rep" form:"rep"`
 	Money       string   `json:"money" form:"money"`
 	Type        string   `json:"type" form:"type"`
 	Badges      []string `json:"badges" form:"badges"`
@@ -78,13 +80,22 @@ func RenderProfile(g generator.Generator, p *ProfileData) image.Image {
 	g.Toolbox.DrawTextWrapped(dc, p.Money, 756, 320, 208, 408, 13)
 
 
+	/* Rep */
+	dc.LoadFontFace("./fonts/Monstserrat/Montserrat-Medium.ttf", 24) // Default is 40px
+	g.Toolbox.DrawTextWrapped(dc, "Reputação", 378, 370, 208, 408, 13)
+	
+	dc.LoadFontFace("./fonts/Inter/Montserrat-Medium.ttf", 24) // Default is 40px
+	g.Toolbox.DrawTextWrapped(dc, p.Rep, 760, 370, 208, 408, 13)
+	
+
 	/* Nivel */
 	dc.LoadFontFace("../assets/fonts/Montserrat/Montserrat-Regular.ttf", 25)
 	dc.DrawString("Nivel", float64(990), float64(322))
 
 	dc.LoadFontFace("./fonts/Monstserrat/Montserrat-Regular.ttf", 26) // Default is 40px
-	dc.DrawString("64", float64(1010), float64(366))
+	dc.DrawString(p.Level, float64(1010), float64(366))
 
+		
 	/* About Me	*/
 	dc.LoadFontFace("./fonts/Inter/medium.ttf", 23)
 	dc.SetHexColor(g.Toolbox.GetCompatibleFontColor("#ffff"))
