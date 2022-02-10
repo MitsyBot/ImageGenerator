@@ -88,7 +88,7 @@ func RenderProfile(g generator.Generator, p *ProfileData) image.Image {
 	g.Toolbox.DrawTextWrapped(dc, p.Rep, 640, 370, 208, 408, 13)
 	
 	/* ProgressBar */
-	dc.SetColor("#f895fb")
+	dc.SetHexColor("#f895fb")
 	dc.DrawRoundedRectangle(378, 410, 200, 9, 3)
 
 	/* Nivel */
