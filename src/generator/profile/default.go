@@ -33,22 +33,11 @@ func RenderProfile(g generator.Generator, p *ProfileData) image.Image {
 	img = g.Toolbox.GetAsset("template/profile")
 	dc.DrawImage(img, 0, 0)
 
-	/* Lines Extra*/
-	dc.SetHexColor(p.FavColor)
-	dc.SetLineWidth(6)
-	dc.DrawLine(-250, 260, float64(1120), float64(260))
-	dc.Stroke()
-
 	/* AVATAR DRAWING */
 	avatarSize := 240
 	circleSize := float64(116)
-	x := 155
-	y := 126
-
-	/* Outline of avatar	*/
-	dc.SetHexColor("ffffff")
-	dc.DrawCircle(float64(x), float64(y), 77)
-	dc.Fill()
+	x := 159
+	y := 128
 
 	dc.SetHexColor(p.FavColor)
 	dc.DrawCircle(float64(x), float64(y), 125)
