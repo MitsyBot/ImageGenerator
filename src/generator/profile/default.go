@@ -127,11 +127,10 @@ func RenderProfile(g generator.Generator, p *ProfileData) image.Image {
 				dc.DrawImage(g.Toolbox.GetAsset("badges/profile/"+b), int(cxpos), int(cypos))
 			}
 
-			cypos = cypos + badgesizey + badgespacing
+			cypos = cypos - badgesizey - badgespacing
 			if cypos > by+spacebtwedge+recsizey {
 				cxpos = cxpos - badgesizex - badgespacing
 				cxpos = bx - spacebtwedge
-				cypos = by
 				if cxpos > bx+spacebtwedge+recsizex {
 					break // if we run out of space, break the loop
 				}
