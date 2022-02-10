@@ -16,6 +16,7 @@ type ProfileData struct {
 	AboutMe     string   `json:"aboutMe" form:"aboutMe"`
 	FavColor    string   `json:"favColor" form:"favColor"`
 	Level 		string   `json:"level" form:"level"`
+	Xp 			string   `json:"xp" form:"xp"`
 	Rep 		string   `json:"rep" form:"rep"`
 	Money       string   `json:"money" form:"money"`
 	Type        string   `json:"type" form:"type"`
@@ -89,12 +90,18 @@ func RenderProfile(g generator.Generator, p *ProfileData) image.Image {
 	
 	/* ProgressBar */
 
+	dc.LoadFontFace("./fonts/Monstserrat/Montserrat-Medium.ttf", 24) // Default is 40px
+	g.Toolbox.DrawTextWrapped(dc, "Experiencia", 378, 466, 208, 408, 13)
+	
+	dc.LoadFontFace("./fonts/Monstserrat/Montserrat-Medium.ttf", 24) // Default is 40px
+	g.Toolbox.DrawTextWrapped(dc, p.Xp., 681, 466, 208, 408, 13)
+	
 	dc.SetHexColor("#E8E8E8")
-	dc.DrawRoundedRectangle(378, 410, 366, 9, float64(3))
+	dc.DrawRoundedRectangle(378, 493, 366, 9, float64(3))
 	dc.Fill()
 
 	dc.SetHexColor(p.FavColor)
-	dc.DrawRoundedRectangle(378, 410, 200, 9, float64(3))
+	dc.DrawRoundedRectangle(378, 493, 200, 9, float64(3))
 	dc.Fill()
 
 	/* Nivel */
