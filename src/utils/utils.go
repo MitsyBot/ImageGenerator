@@ -141,7 +141,7 @@ func (util *Utils) GetCompatibleFontColor(hex_color string) string {
 	}
 }
 
-var errInvalidFormat = errors.New("HEX de cor invalido!")
+var errInvalidFormat = errors.New("Invalid HEX color format!")
 
 func (util *Utils) ParseHexColor(s string) (c color.RGBA, err error) {
 	c.A = 0xff

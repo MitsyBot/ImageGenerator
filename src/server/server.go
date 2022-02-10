@@ -55,11 +55,11 @@ func StartServer(port string) {
 
 	app.Static("/static", "../assets/images")
 	app.Get("/version", func(c *fiber.Ctx) error {
-		return c.SendString("Image generator v1.1-dev1 (fasthttp/fiber; golang)")
+		return c.SendString("generator v1.1-dev1 (fasthttp/fiber; golang)")
 	})
 	app.Get("/get_asset_list/:image", func(c *fiber.Ctx) error {
-		if _, found := utils.Find([]string{"foundation", "badges", "stickers", "bgs"}, c.Params("image")); !found {
-			return c.SendString("não")
+		if _, found := utils.Find([]string{"badges", "stickers", "bgs"}, c.Params("image")); !found {
+			return c.SendString("nothing")
 		}
 
 		files, err := ioutil.ReadDir("../assets/images/" + c.Params("image"))
@@ -85,11 +85,12 @@ func StartServer(port string) {
 		case "default":
 			c.Set("Content-Type", "image/webp")
 
-			img = profilegenerator.RenderDefaulProfile(gen, p)
+			img = profilegenerator.RenderProfile(gen, p)
+
 		default:
 			c.Set("Content-Type", "image/webp")
 
-			img = profilegenerator.RenderDefaulProfile(gen, p)
+			img = profilegenerator.RenderProfile(gen, p)
 		}
 
 		if c.Query("w", "0") != "0" {
@@ -116,7 +117,7 @@ func StartServer(port string) {
 						img = newImage
 					default:
 						c.Set("Content-Type", "text/plain; charset=utf-8")
-						return c.SendString("😳 Ops, você esqueceu de algo.")
+						return c.SendString("😳 Oops! You forgot something your cute.")
 					}
 				}
 

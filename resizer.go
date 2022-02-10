@@ -1,5 +1,7 @@
 package main
 
+// utility for resizing images
+
 import (
 	"image"
 	_ "image/jpeg"
@@ -32,7 +34,7 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
-	print("Aviso: Usando Lanczos para reamostrar a imagem. Isso pode demorar um pouco.\n")
+	print("WARNING: Using Lanczos to resample the image. This may take a few moments.\n")
 	img = imaging.Fill(img, x, y, imaging.Center, imaging.Lanczos)
 
 	outf, err := os.Create(save_to)
@@ -45,6 +47,6 @@ func main() {
 	if err != nil {
 		panic(err)
 	} else {
-		print("Pronto\n")
+		print("done\n")
 	}
 }
