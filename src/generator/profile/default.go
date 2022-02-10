@@ -110,7 +110,7 @@ func RenderProfile(g generator.Generator, p *ProfileData) image.Image {
 	badgesizex := 35.0
 	badgesizey := 30.0
 	badgespacing := 65.0 // <=
-	spacebtwedge := 5.0
+	spacebtwedge := 20.0
 	recsizex := 450.0
 
 	recsizey := badgesizey*2 + badgespacing
@@ -121,7 +121,7 @@ func RenderProfile(g generator.Generator, p *ProfileData) image.Image {
 
 	for _, b := range p.Badges {
 		nb++
-		if nb == 3 {
+		if nb == 10 {
 		} else {
 			if b != "" {
 				dc.DrawImage(g.Toolbox.GetAsset("badges/profile/"+b), int(cxpos), int(cypos))
