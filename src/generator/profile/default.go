@@ -105,7 +105,7 @@ func RenderProfile(g generator.Generator, p *ProfileData) image.Image {
 	g.Toolbox.DrawTextWrapped(dc, p.Xp, 640, 466, 208, 408, 13)
 	
 	dc.SetHexColor("#E8E8E8")
-	dc.DrawRoundedRectangle(378, 493, 340, 9, float64(3))
+	dc.DrawRoundedRectangle(378, 493, 360, 9, float64(3))
 	dc.Fill()
 
 	dc.SetHexColor(p.FavColor)
