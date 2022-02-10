@@ -75,7 +75,7 @@ func RenderProfile(g generator.Generator, p *ProfileData) image.Image {
 	g.Toolbox.DrawTextWrapped(dc, "Cometinhas", 378, 320, 208, 408, 13)
 
 	dc.LoadFontFace("./fonts/Inter/Montserrat-Medium.ttf", 24) // Default is 40px
-	g.Toolbox.DrawTextWrapped(dc, p.Money, 756, 320, 208, 408, 13)
+	g.Toolbox.DrawTextWrapped(dc, p.Money, 600, 320, 208, 408, 13)
 
 
 	/* Nivel */
@@ -107,8 +107,8 @@ func RenderProfile(g generator.Generator, p *ProfileData) image.Image {
 
 	bx := 1000.0
 	by := 390.0
-	badgesizex := 25.0
-	badgesizey := 20.0
+	badgesizex := 35.0
+	badgesizey := 30.0
 	badgespacing := 65.0 // <=
 	spacebtwedge := 10.0
 	recsizex := 450.0
