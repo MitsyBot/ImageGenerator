@@ -87,6 +87,8 @@ func RenderProfile(g generator.Generator, p *ProfileData) image.Image {
 	dc.LoadFontFace("./fonts/Inter/Montserrat-Medium.ttf", 24) // Default is 40px
 	g.Toolbox.DrawTextWrapped(dc, p.Rep, 640, 370, 208, 408, 13)
 	
+	/* ProgressBar */
+	dc.DrawRoundedRectangle(378, 410, 200, 9, 3)
 
 	/* Nivel */
 	dc.LoadFontFace("../assets/fonts/Montserrat/Montserrat-Regular.ttf", 25)
