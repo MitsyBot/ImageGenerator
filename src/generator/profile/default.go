@@ -69,8 +69,13 @@ func RenderProfile(g generator.Generator, p *ProfileData) image.Image {
 	dc.SetHexColor(g.Toolbox.GetCompatibleFontColor("#ffff"))
 	dc.DrawString(p.Name, float64(120), float64(620))
 
+
+	/* Dinheiros */
 	dc.LoadFontFace("./fonts/Inter/semibold.ttf", 24) // Default is 40px
-	g.Toolbox.DrawTextWrapped(dc, p.Money, 520, 306, 208, 408, 13)
+	g.Toolbox.DrawTextWrapped(dc, "Cometinhas", 380, 320, 208, 408, 13)
+
+	dc.LoadFontFace("./fonts/Inter/semibold.ttf", 24) // Default is 40px
+	g.Toolbox.DrawTextWrapped(dc, p.Money, 760, 320, 208, 408, 13)
 
 	/* About Me	*/
 	dc.LoadFontFace("./fonts/Inter/medium.ttf", 23)
