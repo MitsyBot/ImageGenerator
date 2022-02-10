@@ -67,7 +67,7 @@ func RenderProfile(g generator.Generator, p *ProfileData) image.Image {
 	/* NickName	*/
 	dc.LoadFontFace("./fonts/Montserrat/Montserrat-ExtraLight.ttf", 30)
 	dc.SetHexColor(g.Toolbox.GetCompatibleFontColor("#ffff"))
-	dc.DrawString(p.Name, float64(25), float64(645))
+	dc.DrawString(p.Name, float64(35), float64(640))
 
 	dc.LoadFontFace("./fonts/Montserrat/Montserrat-ExtraLight.ttf", 24) // Default is 40px
 	g.Toolbox.DrawTextWrapped(dc, p.Money, 520, 306, 208, 408, 13)
