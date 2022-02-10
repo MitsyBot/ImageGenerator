@@ -75,7 +75,7 @@ func RenderProfile(g generator.Generator, p *ProfileData) image.Image {
 	/* About Me	*/
 	dc.LoadFontFace("./fonts/Inter/medium.ttf", 23)
 	dc.SetHexColor(g.Toolbox.GetCompatibleFontColor("#ffff"))
-	g.Toolbox.DrawTextWrapped(dc, p.AboutMe, 25, 671, 500, 250, 28)
+	g.Toolbox.DrawTextWrapped(dc, p.AboutMe, 120, 671, 500, 250, 28)
 
 	/* Married	*/
 	if p.Married {
