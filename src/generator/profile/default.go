@@ -88,8 +88,8 @@ func RenderProfile(g generator.Generator, p *ProfileData) image.Image {
 	g.Toolbox.DrawTextWrapped(dc, p.Rep, 640, 370, 208, 408, 13)
 	
 	/* ProgressBar */
-	dc.SetHexColor("#f895fb")
 	dc.DrawRoundedRectangle(378, 410, 200, 9, 3)
+	dc.SetHexColor(g.Toolbox.GetCompatibleFontColor("#ae37ee"))
 
 	/* Nivel */
 	dc.LoadFontFace("../assets/fonts/Montserrat/Montserrat-Regular.ttf", 25)
