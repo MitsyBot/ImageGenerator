@@ -67,7 +67,7 @@ func RenderProfile(g generator.Generator, p *ProfileData) image.Image {
 	/* NickName	*/
 	dc.LoadFontFace("./fonts/Montserrat/Montserrat-ExtraLight.ttf", 30)
 	dc.SetHexColor(g.Toolbox.GetCompatibleFontColor("#ffff"))
-	dc.DrawString(p.Name, float64(25), float64(295))
+	dc.DrawString(p.Name, float64(25), float64(615))
 
 	dc.LoadFontFace("./fonts/Montserrat/Montserrat-ExtraLight.ttf", 24) // Default is 40px
 	g.Toolbox.DrawTextWrapped(dc, p.Money, 520, 306, 208, 408, 13)
@@ -75,7 +75,7 @@ func RenderProfile(g generator.Generator, p *ProfileData) image.Image {
 	/* About Me	*/
 	dc.LoadFontFace("./fonts/Montserrat/Montserrat-Regular.ttf", 23)
 	dc.SetHexColor(g.Toolbox.GetCompatibleFontColor("#ffff"))
-	g.Toolbox.DrawTextWrapped(dc, p.AboutMe, 25, 377, 500, 250, 28)
+	g.Toolbox.DrawTextWrapped(dc, p.AboutMe, 25, 671, 500, 250, 28)
 
 	/* Married	*/
 	if p.Married {
