@@ -1,9 +1,11 @@
 package server
 
 import (
+	"fmt"
 	"image"
 	"image/png"
 	"io/ioutil"
+	"strconv"
 	"time"
 	"generator/src/generator"
 	profilegenerator "generator/src/generator/profile"
@@ -14,6 +16,7 @@ import (
 	"github.com/gofiber/fiber/v2/middleware/compress"
 	"github.com/gofiber/fiber/v2/middleware/monitor"
 	"github.com/gofiber/fiber/v2/middleware/pprof"
+	"github.com/nfnt/resize"
 )
 
 func StartServer(port string) {
@@ -72,15 +75,52 @@ func StartServer(port string) {
 		p := new(profilegenerator.ProfileData)
 
 		if err := c.BodyParser(p); err != nil {
+			fmt.Println(err)
 			return err
 		}
 
 		var img image.Image
-		c.Set("Content-Type", "image/png")
 
 		switch p.Type {
-			case "default":
-				img = profilegenerator.RenderDefaultProfile(gen, p)
+		case "default":
+			c.Set("Content-Type", "image/webp")
+
+			img = profilegenerator.RenderDefaulProfile(gen, p)
+		default:
+			c.Set("Content-Type", "image/webp")
+
+			img = profilegenerator.RenderDefaulProfile(gen, p)
+		}
+
+		if c.Query("w", "0") != "0" {
+			if c.Query("h", "0") != "0" {
+				parseW, err := strconv.ParseUint(c.Query("w", "0"), 10, 32)
+				if err != nil {
+					fmt.Println(err)
+					return err
+				}
+				parseH, err := strconv.ParseUint(c.Query("h", "0"), 10, 32)
+				if err != nil {
+					fmt.Println(err)
+					return err
+				}
+
+				if c.Query("type", "0") != "0" {
+					switch c.Query("type", "nil") {
+					case "thumb":
+						newImage := resize.Thumbnail(uint(parseW), uint(parseH), img, resize.Lanczos3)
+						img = newImage
+
+					case "resize":
+						newImage := resize.Resize(uint(parseW), uint(parseH), img, resize.Lanczos3)
+						img = newImage
+					default:
+						c.Set("Content-Type", "text/plain; charset=utf-8")
+						return c.SendString("😳 Ops, você esqueceu de algo.")
+					}
+				}
+
+			}
 		}
 
 		return encoder.Encode(c.Context(), img)
