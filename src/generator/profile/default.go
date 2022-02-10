@@ -79,7 +79,7 @@ func RenderProfile(g generator.Generator, p *ProfileData) image.Image {
 
 
 	/* Nivel */
-	dc.LoadFontFace("../assets/fonts/Montserrat/Montserrat-Regular.ttf", 25)
+	dc.LoadFontFace("../assets/fonts/Poppins/Poppins-Light", 25)
 	dc.DrawString("Nivel", float64(990), float64(322))
 
 	dc.LoadFontFace("./fonts/Monstserrat/Montserrat-Regular.ttf", 26) // Default is 40px
