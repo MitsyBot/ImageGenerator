@@ -1,13 +1,13 @@
-FROM golang:alpine AS builder
+FROM golang AS builder
 WORKDIR /src
 COPY . /src
 RUN go mod tidy
 RUN cd ./src && go build -o img_generator
 RUN cd ./ && ls
 
-FROM alpine
+FROM golang
 WORKDIR /app
 COPY --from=builder /src/src/img_generator /app
-
+RUN ls
 EXPOSE 2080
 CMD ["./img_generator"]
