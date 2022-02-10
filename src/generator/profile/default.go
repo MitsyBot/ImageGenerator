@@ -109,7 +109,7 @@ func RenderProfile(g generator.Generator, p *ProfileData) image.Image {
 	by := 390.0
 	badgesizex := 15.0
 	badgesizey := 10.0
-	badgespacing := 65.0 // <=
+	badgespacing := 50.0 // <=
 	spacebtwedge := 10.0
 	recsizex := 450.0
 
