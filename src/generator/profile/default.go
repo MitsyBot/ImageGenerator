@@ -16,7 +16,7 @@ type ProfileData struct {
 	AboutMe     string   `json:"aboutMe" form:"aboutMe"`
 	FavColor    string   `json:"favColor" form:"favColor"`
 	Level 		string   `json:"level" form:"level"`
-	BarLevel	uint64	 `json:"barlevel" form:"barlevel"`
+	BarLevel	float64	 `json:"barlevel" form:"barlevel"`
 	Xp 			string   `json:"xp" form:"xp"`
 	Ranking 	string   `json:"ranking" form:"ranking"`
 	Rep 		string   `json:"rep" form:"rep"`
