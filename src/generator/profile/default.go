@@ -94,7 +94,7 @@ func RenderProfile(g generator.Generator, p *ProfileData) image.Image {
 	g.Toolbox.DrawTextWrapped(dc, "Experiencia", 378, 466, 208, 408, 13)
 	
 	dc.LoadFontFace("./fonts/Monstserrat/Montserrat-Medium.ttf", 24) // Default is 40px
-	dc.DrawStringWrapped(p.Xp, 631, 466, 0, 0, 208, 13, align AlignRight)
+	dc.DrawStringWrapped(p.Xp, 631, 466, 0, 0, 208, 13, "right")
 
 	
 	dc.SetHexColor("#E8E8E8")
