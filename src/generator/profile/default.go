@@ -85,8 +85,8 @@ func RenderProfile(g generator.Generator, p *ProfileData) image.Image {
 		dc.DrawImage(img, 0, 0)
 
 		/* Partner */
-		dc.SetHexColor(g.Toolbox.GetCompatibleFontColor("#ffff"))
-		dc.DrawString(p.PartnerName, 659, 380)
+		dc.SetHexColor(g.Toolbox.GetCompatibleFontColor("#f895fb"))
+		dc.DrawString(p.PartnerName, 46, 398)
 
 	}
 
