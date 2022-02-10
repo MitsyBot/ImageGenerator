@@ -30,7 +30,7 @@ func RenderProfile(g generator.Generator, p *ProfileData) image.Image {
 
 	dc.DrawImage(img, 260, 0)
 	dc.LoadFontFace("../assets/fonts/Ghost/iknowaghost.ttf", 50)
-	img = g.Toolbox.GetAsset("template/profile")
+	img = g.Toolbox.GetAsset("template/profile.png")
 	dc.DrawImage(img, 0, 0)
 
 	/* Lines Extra*/
