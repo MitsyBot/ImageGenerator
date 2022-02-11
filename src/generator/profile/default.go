@@ -31,7 +31,7 @@ func RenderProfile(g generator.Generator, p *ProfileData) image.Image {
 	dc := gg.NewContext(1100, 720)
 
 	/* BACKGROUND */
-	img := g.Toolbox.GetAsset("bgs/profile/" + p.Background)
+	img := g.Toolbox.GetAssetsFromURL("https://cdn.poluxtrail.fun/background/" + p.Background + ".png")
 
 	dc.DrawImage(img, 260, 0)
 	dc.LoadFontFace("./fonts/Ghost/iknowaghost.ttf", 50)

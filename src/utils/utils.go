@@ -124,6 +124,43 @@ func (util *Utils) ReadImageFromURL(url string, x, y int) image.Image {
 	return imagem
 }
 
+func (util *Utils) GetAssetsFromURL(url string) image.Image {
+	var imagem image.Image = nil
+	getImage, ok := util.asset_cache[url]
+
+	if ok == true {
+		return getImage
+	}
+	res, err := http.Get(url)
+	if err != nil {
+		return util.default_image
+		imagem = util.default_image
+	}
+	defer res.Body.Close()
+
+	if imagem == nil {
+		img, _, err := image.Decode(res.Body)
+		if err != nil {
+			// 	webp.Decode(r io.Reader)
+			webpData, err := webp.Decode(res.Body)
+			if err != nil {
+				return util.default_image
+				imagem = util.default_image
+			} else {
+				imagem = webpData
+			}
+			return util.default_image
+			imagem = util.default_image
+		} else {
+			imagem = img
+		}
+	}
+	if ok == false {
+		util.asset_cache[url] = imagem
+	}
+	return imagem
+}
+
 func (util *Utils) GetColorLuminance(color color.RGBA) float64 {
 	return float64(float64(0.299)*float64(color.R) + float64(0.587)*float64(color.G) + float64(0.114)*float64(color.B))
 }
