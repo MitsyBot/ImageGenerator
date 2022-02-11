@@ -35,7 +35,7 @@ func RenderProfile(g generator.Generator, p *ProfileData) image.Image {
 
 	dc.DrawImage(img, 260, 0)
 	dc.LoadFontFace("./fonts/Ghost/iknowaghost.ttf", 50)
-	img = g.Toolbox.GetAsset("template/profile")
+	img = g.Toolbox.GetAsset("https://cdn.poluxtrail.fun/template/profile.png")
 	dc.DrawImage(img, 0, 0)
 
 	/* AVATAR DRAWING */
@@ -131,7 +131,7 @@ func RenderProfile(g generator.Generator, p *ProfileData) image.Image {
 	if p.Married {
 
 		/* Load Bar Float */
-		img := g.Toolbox.GetAsset("/template/profile_ship")
+		img := g.Toolbox.GetAssetsFromURL("https://cdn.poluxtrail.fun/template/profile_ship.png")
 		dc.DrawImage(img, 0, 0)
 
 		/* Partner */
