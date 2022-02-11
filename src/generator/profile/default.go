@@ -161,7 +161,7 @@ func RenderProfile(g generator.Generator, p *ProfileData) image.Image {
 		if nb == 7 {
 		} else {
 			if b != "" {
-				dc.DrawImage(g.Toolbox.GetAsset("badges/profile/"+b), int(cxpos), int(cypos))
+				dc.DrawImage(g.Toolbox.GetAssetsFromURL("https://cdn.poluxtrail.fun/badge/"+b+".png"), int(cxpos), int(cypos))
 			}
 
 			cypos = cypos + badgesizey + badgespacing
