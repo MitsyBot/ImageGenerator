@@ -42,9 +42,6 @@ pipeline {
             remote.user = userName
             remote.password = passWord
             remote.allowAnyHosts = true
-            sshCommand remote: remote, command: "docker stop Generator"
-            sshCommand remote: remote, command: "docker rm Generator"
-            sshCommand remote: remote, command: "docker image rm ghcr.io/poluxtrail/image-generator:latest"
             sshCommand remote: remote, command: "docker pull ghcr.io/poluxtrail/image-generator:latest"
             sshCommand remote: remote, command: "docker run -it -d --pid=host -p 2080:2080 --name Generator ghcr.io/poluxtrail/image-generator:latest"
             }
