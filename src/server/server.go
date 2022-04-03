@@ -126,6 +126,7 @@ func StartServer(port string) {
 	})
 
 	app.Post("/render/avatars", func(c *fiber.Ctx) error {
+		c.Context().SetConnectionClose()
 		p := new(avatarsgenerator.AvatarsData)
 
 		if err := c.BodyParser(p); err != nil {
@@ -133,16 +134,9 @@ func StartServer(port string) {
 			return err
 		}
 
-		var img image.Image
+		img := avatarsgenerator.RenderAvatars(gen, p)
 
-		switch p.Type {
-		case "default":
-			c.Set("Content-Type", "image/png")
-			img = avatarsgenerator.RenderAvatars(gen, p)
-		default:
-			c.Set("Content-Type", "image/png")
-			img = avatarsgenerator.RenderAvatars(gen, p)
-		}
+		c.Set("Content-Type", "image/png")
 
 		if c.Query("w", "0") != "0" {
 			if c.Query("h", "0") != "0" {
@@ -174,9 +168,9 @@ func StartServer(port string) {
 
 			}
 		}
-
 		return encoder.Encode(c.Context(), img)
 	})
+
 
 	app.Listen(":" + port)
 }
