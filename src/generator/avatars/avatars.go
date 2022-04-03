@@ -7,7 +7,7 @@ import (
 	"github.com/fogleman/gg"
 )
 
-type ProfileData struct {
+type AvatarsData struct {
 	OldAvatar   string   `json:"oldAvatar" form:"oldAvatar"`
 	NewAvatar   string   `json:"newAvatar" form:"newAvatar"`
 }
