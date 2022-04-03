@@ -9,7 +9,7 @@ import (
 	"time"
 	"trailgen/src/generator"
 	profilegenerator "trailgen/src/generator/profile"
-	avatarsgenerator "trailgen/src/generator/"
+	avatarsgenerator "trailgen/src/generator"
 	"trailgen/src/utils"
 
 	"github.com/gofiber/fiber/v2"
