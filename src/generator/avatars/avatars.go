@@ -15,12 +15,11 @@ type AvatarsData struct {
 func RenderAvatars(g generator.Generator, p *AvatarsData) image.Image {
 	dc := gg.NewContext(256, 128)
 
-	/* BACKGROUND */
 	oldAvatar := g.Toolbox.ReadImageFromURL(p.oldAvatar, 128, 128)
 	newAvatar := g.Toolbox.ReadImageFromURL(p.newAvatar, 128, 128)
 
-	dc.drawImage(oldAvatar, 0, 0);
-	dc.drawImage(newAvatar, 128, 0);
+	dc.DrawImage(oldAvatar, 0, 0);
+	dc.DrawImage(newAvatar, 128, 0);
 
 	return dc.Image()
 }
