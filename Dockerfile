@@ -1,6 +1,7 @@
 FROM golang:alpine AS builder
 WORKDIR /src
 COPY . /src
+RUN apk add sudo curl build-base g++ libpng libpng-dev jpeg-dev pango-dev cairo-dev giflib-dev python3 make git
 RUN go mod tidy
 RUN cd ./src && go build -o img_generator
 
