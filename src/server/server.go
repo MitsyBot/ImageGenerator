@@ -9,6 +9,7 @@ import (
 	"time"
 	"trailgen/src/generator"
 	profilegenerator "trailgen/src/generator/profile"
+	avatarsgenerator "trailgen/src/generator/avatars"
 	"trailgen/src/utils"
 
 	"github.com/gofiber/fiber/v2"
@@ -88,6 +89,59 @@ func StartServer(port string) {
 		default:
 			c.Set("Content-Type", "image/png")
 			img = profilegenerator.RenderProfile(gen, p)
+		}
+
+		if c.Query("w", "0") != "0" {
+			if c.Query("h", "0") != "0" {
+				parseW, err := strconv.ParseUint(c.Query("w", "0"), 10, 32)
+				if err != nil {
+					fmt.Println(err)
+					return err
+				}
+				parseH, err := strconv.ParseUint(c.Query("h", "0"), 10, 32)
+				if err != nil {
+					fmt.Println(err)
+					return err
+				}
+
+				if c.Query("type", "0") != "0" {
+					switch c.Query("type", "nil") {
+					case "thumb":
+						newImage := resize.Thumbnail(uint(parseW), uint(parseH), img, resize.Lanczos3)
+						img = newImage
+
+					case "resize":
+						newImage := resize.Resize(uint(parseW), uint(parseH), img, resize.Lanczos3)
+						img = newImage
+					default:
+						c.Set("Content-Type", "text/plain; charset=utf-8")
+						return c.SendString("😳 Você esqueceu alguma coisa.")
+					}
+				}
+
+			}
+		}
+
+		return encoder.Encode(c.Context(), img)
+	})
+
+	app.Post("/render/avatars", func(c *fiber.Ctx) error {
+		p := new(avatarsgenerator.AvatarsData)
+
+		if err := c.BodyParser(p); err != nil {
+			fmt.Println(err)
+			return err
+		}
+
+		var img image.Image
+
+		switch p.Type {
+		case "default":
+			c.Set("Content-Type", "image/png")
+			img = avatarsgenerator.RenderAvatars(gen, p)
+		default:
+			c.Set("Content-Type", "image/png")
+			img = avatarsgenerator.RenderAvatars(gen, p)
 		}
 
 		if c.Query("w", "0") != "0" {
